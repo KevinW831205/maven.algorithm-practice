@@ -5,6 +5,15 @@ package com.github.curriculeon;
  */
 public class ExcelColumnNameConverter {
     public Integer toNumber(String columnName) {
-        return null;
+
+        Integer result = 0;
+        int digit = 0;
+        for(int i=columnName.length()-1; i>=0; i--){
+            int charVal = columnName.charAt(i) - 64;
+            result += (int)Math.pow(26,digit) * charVal;
+            digit++;
+        }
+
+        return result;
     }
 }
